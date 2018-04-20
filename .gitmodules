@@ -1,0 +1,3 @@
+[submodule "osa-dockerfiles"]
+	path = osa-dockerfiles
+	url = https://github.com/gschmutz/dockerfiles.git

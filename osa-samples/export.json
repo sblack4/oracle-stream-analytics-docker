@@ -1,0 +1,1159 @@
+{ "Applications" : [{
+  "name" : "2",
+  "displayName" : "SAMPLE Device Monitoring Stream",
+  "description" : "This is a sample device monitoring stream of event shapes from a simulated IOT network infrastricture",
+  "typeName" : "CSVSource",
+  "parameters" : {
+    "eventInterval" : "1000",
+    "initialDelay" : "2000",
+    "loopback" : true,
+    "sourceFilePath" : {
+      "fileServerName" : "SAMPLE_IOT_distributed_device_data_STREAM.txt",
+      "fileDisplayName" : "SAMPLE_IOT_distributed_device_data_STREAM.txt",
+      "type" : "upload"
+    }
+  },
+  "attachedTagNames" : [ "IOT", "Stream", "Devices" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460032689480,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460032689480,
+  "realEventType" : {
+    "name" : "sx-3-11-SAMPLE_Device_Monitoring_Stream-1",
+    "fields" : {
+      "DeviceID" : "string",
+      "ErrorCode" : "string",
+      "ErrorDescription" : "string",
+      "DataValue" : "int"
+    }
+  },
+  "invalid" : false,
+  "producedEventType" : {
+    "name" : "DEVICE SHAPE",
+    "fields" : {
+      "DeviceID" : "string",
+      "ErrorCode" : "string",
+      "ErrorDescription" : "string",
+      "DataValue" : "int"
+    }
+  }
+},{
+  "name" : "3",
+  "displayName" : "SAMPLE Device Monitoring Analysis",
+  "description" : "This Sample Exploration provides basic foundation analysis of device event shapes in the stream",
+  "typeName" : "Exploration",
+  "parameters" : { },
+  "attachedTagNames" : [ "IOT", "Monitoring", "Analysis" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460032766155,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460032810195,
+  "realEventType" : {
+    "name" : "sx-3-20-SAMPLE_Device_Monitoring_Analysis-1",
+    "fields" : {
+      "DeviceID" : "string",
+      "ErrorCode" : "string",
+      "ErrorDescription" : "string",
+      "DataValue" : "int"
+    }
+  },
+  "oepAppName" : "sx-3-20-SAMPLE_Device_Monitoring_Analysis",
+  "invalid" : true,
+  "producedEventType" : null,
+  "targetNames" : [ ],
+  "producedEventTypeMapping" : { },
+  "correlations" : [ ],
+  "conditions" : {
+    "operator" : "AND",
+    "conditions" : [ {
+      "operation" : "NE",
+      "left" : {
+        "fieldAlias" : "ErrorCode"
+      },
+      "right" : {
+        "string" : "0000"
+      }
+    } ]
+  },
+  "group" : [ ],
+  "sources" : [ {
+    "alias" : "src_2",
+    "sourceName" : "2",
+    "window" : {
+      "value" : 1,
+      "unit" : "NOW",
+      "slideValue" : 1,
+      "slideUnit" : "SECONDS",
+      "partitionBy" : [ ],
+      "partitionByKeys" : [ ]
+    }
+  } ],
+  "targetProperties" : [ ],
+  "summaries" : [ ],
+  "explorationFields" : [ {
+    "alias" : "DeviceID",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_2",
+      "fieldName" : "DeviceID"
+    }
+  }, {
+    "alias" : "ErrorCode",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_2",
+      "fieldName" : "ErrorCode"
+    }
+  }, {
+    "alias" : "ErrorDescription",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_2",
+      "fieldName" : "ErrorDescription"
+    }
+  }, {
+    "alias" : "DataValue",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_2",
+      "fieldName" : "DataValue"
+    }
+  } ],
+  "tableProperties" : [ {
+    "alias" : "DeviceID",
+    "order" : 0,
+    "visible" : true
+  }, {
+    "alias" : "ErrorCode",
+    "order" : 1,
+    "visible" : true
+  }, {
+    "alias" : "ErrorDescription",
+    "order" : 2,
+    "visible" : true
+  }, {
+    "alias" : "DataValue",
+    "order" : 3,
+    "visible" : true
+  } ],
+  "pubSubChannelName" : null,
+  "originalVersion" : 7,
+  "obrRules" : [ ],
+  "status" : null,
+  "targets" : [ ]
+},{
+  "name" : "6",
+  "displayName" : "SAMPLE Credit Card Transaction Stream",
+  "description" : "This is a sample of streaming credit card transaction event shapes for analysis",
+  "typeName" : "CSVSource",
+  "parameters" : {
+    "eventInterval" : "1000",
+    "initialDelay" : "2000",
+    "loopback" : true,
+    "sourceFilePath" : {
+      "fileServerName" : "SAMPLE_CREDIT_CARD_TRANSACTIONS.csv",
+      "fileDisplayName" : "SAMPLE_CREDIT_CARD_TRANSACTIONS.csv",
+      "type" : "upload"
+    }
+  },
+  "attachedTagNames" : [ "risk", "credit", "Stream" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460032999581,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460032999581,
+  "realEventType" : {
+    "name" : "sx-3-9-SAMPLE_Credit_Card_Transaction_Stream-1",
+    "fields" : {
+      "PaymentGatewayTransactionId" : "string",
+      "StoreId" : "string",
+      "OrderId" : "string",
+      "TransactionId" : "string",
+      "Amount" : "int",
+      "ResponseCode" : "string",
+      "ResponseText" : "string",
+      "TransactionReference" : "string",
+      "OrderNumber" : "string",
+      "ProviderName" : "string",
+      "DateCreated" : "string"
+    }
+  },
+  "invalid" : false,
+  "producedEventType" : {
+    "name" : "CREDIT CARD SHAPE",
+    "fields" : {
+      "PaymentGatewayTransactionId" : "string",
+      "StoreId" : "string",
+      "OrderId" : "string",
+      "TransactionId" : "string",
+      "Amount" : "int",
+      "ResponseCode" : "string",
+      "ResponseText" : "string",
+      "TransactionReference" : "string",
+      "OrderNumber" : "string",
+      "ProviderName" : "string",
+      "DateCreated" : "string"
+    }
+  }
+},{
+  "name" : "7",
+  "displayName" : "SAMPLE Credit Card Processing Monitoring",
+  "description" : "This sample exploration provides the analysis of credit card streaming transactions",
+  "typeName" : "Exploration",
+  "parameters" : { },
+  "attachedTagNames" : [ "risk", "credit", "Monitoring" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460033102868,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460033420073,
+  "realEventType" : {
+    "name" : "sx-3-21-SAMPLE_Credit_Card_Processing_Monitori-1",
+    "fields" : {
+      "StoreId" : "string",
+      "SUM_of_Amount_18" : "int"
+    }
+  },
+  "oepAppName" : "sx-3-21-SAMPLE_Credit_Card_Processing_Monitori",
+  "invalid" : true,
+  "producedEventType" : null,
+  "targetNames" : [ ],
+  "producedEventTypeMapping" : { },
+  "correlations" : [ ],
+  "conditions" : {
+    "operator" : "AND",
+    "conditions" : [ {
+      "operation" : "GTE",
+      "left" : {
+        "fieldAlias" : "SUM_of_Amount_18"
+      },
+      "right" : {
+        "int" : 3000
+      }
+    } ]
+  },
+  "group" : [ "StoreId" ],
+  "sources" : [ {
+    "alias" : "src_6",
+    "sourceName" : "6",
+    "window" : {
+      "value" : 1,
+      "unit" : "MINUTES",
+      "slideValue" : 5,
+      "slideUnit" : "SECONDS",
+      "partitionBy" : [ ],
+      "partitionByKeys" : [ ]
+    }
+  } ],
+  "targetProperties" : [ ],
+  "summaries" : [ "SUM_of_Amount_18" ],
+  "explorationFields" : [ {
+    "alias" : "PaymentGatewayTransactionId",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "PaymentGatewayTransactionId"
+    }
+  }, {
+    "alias" : "StoreId",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "StoreId"
+    }
+  }, {
+    "alias" : "OrderId",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "OrderId"
+    }
+  }, {
+    "alias" : "TransactionId",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "TransactionId"
+    }
+  }, {
+    "alias" : "Amount",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "Amount"
+    }
+  }, {
+    "alias" : "ResponseCode",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "ResponseCode"
+    }
+  }, {
+    "alias" : "ResponseText",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "ResponseText"
+    }
+  }, {
+    "alias" : "TransactionReference",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "TransactionReference"
+    }
+  }, {
+    "alias" : "OrderNumber",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "OrderNumber"
+    }
+  }, {
+    "alias" : "ProviderName",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "ProviderName"
+    }
+  }, {
+    "alias" : "DateCreated",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_6",
+      "fieldName" : "DateCreated"
+    }
+  }, {
+    "alias" : "SUM_of_Amount_18",
+    "fieldClass" : "AGGREGATED",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "func" : "SUM",
+      "sourceFieldAlias" : "Amount"
+    }
+  } ],
+  "tableProperties" : [ {
+    "alias" : "PaymentGatewayTransactionId",
+    "order" : 0,
+    "visible" : true
+  }, {
+    "alias" : "StoreId",
+    "order" : 1,
+    "visible" : true
+  }, {
+    "alias" : "OrderId",
+    "order" : 2,
+    "visible" : true
+  }, {
+    "alias" : "TransactionId",
+    "order" : 3,
+    "visible" : true
+  }, {
+    "alias" : "Amount",
+    "order" : 4,
+    "visible" : true
+  }, {
+    "alias" : "ResponseCode",
+    "order" : 5,
+    "visible" : true
+  }, {
+    "alias" : "ResponseText",
+    "order" : 6,
+    "visible" : true
+  }, {
+    "alias" : "TransactionReference",
+    "order" : 7,
+    "visible" : true
+  }, {
+    "alias" : "OrderNumber",
+    "order" : 8,
+    "visible" : true
+  }, {
+    "alias" : "ProviderName",
+    "order" : 9,
+    "visible" : true
+  }, {
+    "alias" : "DateCreated",
+    "order" : 10,
+    "visible" : true
+  }, {
+    "alias" : "SUM_of_Amount_18",
+    "order" : 11,
+    "visible" : true
+  } ],
+  "pubSubChannelName" : null,
+  "originalVersion" : 20,
+  "obrRules" : [ ],
+  "status" : null,
+  "targets" : [ ]
+},{
+  "name" : "10",
+  "displayName" : "SAMPLE Customer Services Stream",
+  "description" : "This is a sample stream of event shapes from a customer services web based application providing SLA times",
+  "typeName" : "CSVSource",
+  "parameters" : {
+    "eventInterval" : "1000",
+    "initialDelay" : "2000",
+    "loopback" : true,
+    "sourceFilePath" : {
+      "fileServerName" : "SAMPLE__Customer_SERV_CableBox_record_STREAM.txt",
+      "fileDisplayName" : "SAMPLE__Customer_SERV_CableBox_record_STREAM.txt",
+      "type" : "upload"
+    }
+  },
+  "attachedTagNames" : [ "customer", "Service", "SLA" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460033570233,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460033570233,
+  "realEventType" : {
+    "name" : "sx-3-5-SAMPLE_Customer_Services_Stream-1",
+    "fields" : {
+      "CustomerID" : "string",
+      "CableBoxCode" : "string",
+      "OrigSubScriberIP" : "string",
+      "RecieveSubScriberIP" : "string",
+      "ErrDate" : "string",
+      "ErrTime" : "string",
+      "SLAResponseTime" : "int"
+    }
+  },
+  "invalid" : false,
+  "producedEventType" : {
+    "name" : "CUSTOMER SERVICE SHAPE",
+    "fields" : {
+      "CustomerID" : "string",
+      "CableBoxCode" : "string",
+      "OrigSubScriberIP" : "string",
+      "RecieveSubScriberIP" : "string",
+      "ErrDate" : "string",
+      "ErrTime" : "string",
+      "SLAResponseTime" : "int"
+    }
+  }
+},{
+  "name" : "11",
+  "displayName" : "SAMPLE Customer Services Monitoring",
+  "description" : "This exploration sample monitors the customer services streaming events shapes and ensures SLA times are maintained",
+  "typeName" : "Exploration",
+  "parameters" : { },
+  "attachedTagNames" : [ "customer", "SLA", "Monitoring" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460033642927,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460033929139,
+  "realEventType" : {
+    "name" : "sx-3-22-SAMPLE_Customer_Services_Monitoring-2",
+    "fields" : {
+      "CustomerID" : "string",
+      "CableBoxCode" : "string",
+      "OrigSubScriberIP" : "string",
+      "RecieveSubScriberIP" : "string",
+      "SLAResponseTime" : "int",
+      "Status" : "string"
+    }
+  },
+  "oepAppName" : "sx-3-22-SAMPLE_Customer_Services_Monitoring",
+  "invalid" : true,
+  "producedEventType" : null,
+  "targetNames" : [ ],
+  "producedEventTypeMapping" : { },
+  "correlations" : [ ],
+  "conditions" : {
+    "operator" : "AND",
+    "conditions" : [ ]
+  },
+  "group" : [ ],
+  "sources" : [ {
+    "alias" : "src_10",
+    "sourceName" : "10",
+    "window" : {
+      "value" : 1,
+      "unit" : "NOW",
+      "slideValue" : 1,
+      "slideUnit" : "SECONDS",
+      "partitionBy" : [ ],
+      "partitionByKeys" : [ ]
+    }
+  } ],
+  "targetProperties" : [ ],
+  "summaries" : [ ],
+  "explorationFields" : [ {
+    "alias" : "CustomerID",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "CustomerID"
+    }
+  }, {
+    "alias" : "CableBoxCode",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "CableBoxCode"
+    }
+  }, {
+    "alias" : "OrigSubScriberIP",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "OrigSubScriberIP"
+    }
+  }, {
+    "alias" : "RecieveSubScriberIP",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "RecieveSubScriberIP"
+    }
+  }, {
+    "alias" : "ErrDate",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : true,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "ErrDate"
+    }
+  }, {
+    "alias" : "ErrTime",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : true,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "ErrTime"
+    }
+  }, {
+    "alias" : "SLAResponseTime",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_10",
+      "fieldName" : "SLAResponseTime"
+    }
+  }, {
+    "alias" : "Status",
+    "fieldClass" : "CALCULATED",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "expression" : "=\"\""
+    }
+  } ],
+  "tableProperties" : [ {
+    "alias" : "CustomerID",
+    "order" : 0,
+    "visible" : true
+  }, {
+    "alias" : "CableBoxCode",
+    "order" : 1,
+    "visible" : true
+  }, {
+    "alias" : "OrigSubScriberIP",
+    "order" : 2,
+    "visible" : true
+  }, {
+    "alias" : "RecieveSubScriberIP",
+    "order" : 3,
+    "visible" : true
+  }, {
+    "alias" : "ErrDate",
+    "order" : 4,
+    "visible" : true
+  }, {
+    "alias" : "ErrTime",
+    "order" : 5,
+    "visible" : true
+  }, {
+    "alias" : "SLAResponseTime",
+    "order" : 6,
+    "visible" : true
+  }, {
+    "alias" : "Status",
+    "order" : 7,
+    "visible" : true
+  } ],
+  "pubSubChannelName" : null,
+  "originalVersion" : 36,
+  "obrRules" : [ {
+    "name" : "SLA_RULE",
+    "description" : "If the SLA time indicated is too long then set a ALERT Status flag",
+    "conditions" : {
+      "operator" : "AND",
+      "conditions" : [ {
+        "operation" : "GTE",
+        "left" : {
+          "fieldAlias" : "SLAResponseTime"
+        },
+        "right" : {
+          "int" : 3
+        }
+      } ]
+    },
+    "actions" : [ {
+      "fieldAlias" : "Status",
+      "expression" : "ALERT"
+    } ],
+    "errors" : null
+  } ],
+  "status" : null,
+  "targets" : [ ]
+},{
+  "name" : "14",
+  "displayName" : "SAMPLE CDR Telecommunications Stream",
+  "description" : "This stream of event shapes are simulated CDR - Call Detail Records from a operator network",
+  "typeName" : "CSVSource",
+  "parameters" : {
+    "eventInterval" : "1000",
+    "initialDelay" : "2000",
+    "loopback" : true,
+    "sourceFilePath" : {
+      "fileServerName" : "SAMPLE_Telecommunications_CDR_STREAM.txt",
+      "fileDisplayName" : "SAMPLE_Telecommunications_CDR_STREAM.txt",
+      "type" : "upload"
+    }
+  },
+  "attachedTagNames" : [ "telecom", "CDR", "Stream" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460034119504,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460034119504,
+  "realEventType" : {
+    "name" : "sx-3-7-SAMPLE_CDR_Telecommunications_Stream-1",
+    "fields" : {
+      "CallID" : "string",
+      "CallCode" : "string",
+      "OrigSubScriber" : "string",
+      "RecieveSubScriber" : "string",
+      "CDRDate" : "string",
+      "CDRTime" : "string",
+      "CallDropCount" : "int"
+    }
+  },
+  "invalid" : false,
+  "producedEventType" : {
+    "name" : "CDR SHAPE",
+    "fields" : {
+      "CallID" : "string",
+      "CallCode" : "string",
+      "OrigSubScriber" : "string",
+      "RecieveSubScriber" : "string",
+      "CDRDate" : "string",
+      "CDRTime" : "string",
+      "CallDropCount" : "int"
+    }
+  }
+},{
+  "name" : "15",
+  "displayName" : "SAMPLE CDR Monitoring",
+  "description" : "This sample exploration monitors the streaming flow of CDR's and determines whether a frequent call drop is occurring reducing customer satisfaction",
+  "typeName" : "Exploration",
+  "parameters" : { },
+  "attachedTagNames" : [ "telecom", "CDR", "Monitoring" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460034207052,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460034292757,
+  "realEventType" : {
+    "name" : "sx-3-23-SAMPLE_CDR_Monitoring-1",
+    "fields" : {
+      "CallID" : "string",
+      "SUM_of_CallDropCount_66" : "int"
+    }
+  },
+  "oepAppName" : "sx-3-23-SAMPLE_CDR_Monitoring",
+  "invalid" : true,
+  "producedEventType" : null,
+  "targetNames" : [ ],
+  "producedEventTypeMapping" : { },
+  "correlations" : [ ],
+  "conditions" : {
+    "operator" : "AND",
+    "conditions" : [ {
+      "operation" : "GTE",
+      "left" : {
+        "fieldAlias" : "SUM_of_CallDropCount_66"
+      },
+      "right" : {
+        "int" : 20
+      }
+    } ]
+  },
+  "group" : [ "CallID" ],
+  "sources" : [ {
+    "alias" : "src_14",
+    "sourceName" : "14",
+    "window" : {
+      "value" : 5,
+      "unit" : "MINUTES",
+      "slideValue" : 5,
+      "slideUnit" : "SECONDS",
+      "partitionBy" : [ ],
+      "partitionByKeys" : [ ]
+    }
+  } ],
+  "targetProperties" : [ ],
+  "summaries" : [ "SUM_of_CallDropCount_66" ],
+  "explorationFields" : [ {
+    "alias" : "CallID",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "CallID"
+    }
+  }, {
+    "alias" : "CallCode",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "CallCode"
+    }
+  }, {
+    "alias" : "OrigSubScriber",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "OrigSubScriber"
+    }
+  }, {
+    "alias" : "RecieveSubScriber",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "RecieveSubScriber"
+    }
+  }, {
+    "alias" : "CDRDate",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "CDRDate"
+    }
+  }, {
+    "alias" : "CDRTime",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "CDRTime"
+    }
+  }, {
+    "alias" : "CallDropCount",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : true,
+    "operand" : {
+      "sourceAlias" : "src_14",
+      "fieldName" : "CallDropCount"
+    }
+  }, {
+    "alias" : "SUM_of_CallDropCount_66",
+    "fieldClass" : "AGGREGATED",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "func" : "SUM",
+      "sourceFieldAlias" : "CallDropCount"
+    }
+  } ],
+  "tableProperties" : [ {
+    "alias" : "CallID",
+    "order" : 0,
+    "visible" : true
+  }, {
+    "alias" : "CallCode",
+    "order" : 1,
+    "visible" : true
+  }, {
+    "alias" : "OrigSubScriber",
+    "order" : 2,
+    "visible" : true
+  }, {
+    "alias" : "RecieveSubScriber",
+    "order" : 3,
+    "visible" : true
+  }, {
+    "alias" : "CDRDate",
+    "order" : 4,
+    "visible" : true
+  }, {
+    "alias" : "CDRTime",
+    "order" : 5,
+    "visible" : true
+  }, {
+    "alias" : "CallDropCount",
+    "order" : 6,
+    "visible" : true
+  }, {
+    "alias" : "SUM_of_CallDropCount_66",
+    "order" : 7,
+    "visible" : true
+  } ],
+  "pubSubChannelName" : null,
+  "originalVersion" : 49,
+  "obrRules" : [ ],
+  "status" : null,
+  "targets" : [ ]
+},{
+  "name" : "18",
+  "displayName" : "SAMPLE POS Retail Stream",
+  "description" : "This is a simulated sample stream of POS - Point of Sale streaming information for instant analysis",
+  "typeName" : "CSVSource",
+  "parameters" : {
+    "eventInterval" : "1000",
+    "initialDelay" : "2000",
+    "loopback" : true,
+    "sourceFilePath" : {
+      "fileServerName" : "SAMPLE_RETAIL_data_STREAM.csv",
+      "fileDisplayName" : "SAMPLE_RETAIL_data_STREAM.csv",
+      "type" : "upload"
+    }
+  },
+  "attachedTagNames" : [ "retail", "POS", "Stream" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460034458154,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460034458154,
+  "realEventType" : {
+    "name" : "sx-3-3-SAMPLE_POS_Retail_Stream-1",
+    "fields" : {
+      "StoreName" : "string",
+      "StoreEmail" : "string",
+      "ZipCode" : "string",
+      "CreditCardNumber" : "string",
+      "PurchaseAmount" : "int",
+      "MeatSales" : "int",
+      "FruitSales" : "int",
+      "ClothingSales" : "int",
+      "StoreID" : "string"
+    }
+  },
+  "invalid" : false,
+  "producedEventType" : {
+    "name" : "POS SHAPE",
+    "fields" : {
+      "StoreName" : "string",
+      "StoreEmail" : "string",
+      "ZipCode" : "string",
+      "CreditCardNumber" : "string",
+      "PurchaseAmount" : "int",
+      "MeatSales" : "int",
+      "FruitSales" : "int",
+      "ClothingSales" : "int",
+      "StoreID" : "string"
+    }
+  }
+},{
+  "name" : "19",
+  "displayName" : "SAMPLE POS Monitoring Analysis",
+  "description" : "This sample exploration monitors the flow of Point of Sale event shapes from around the country store outlets to manage inventory levels",
+  "typeName" : "Exploration",
+  "parameters" : { },
+  "attachedTagNames" : [ "retail", "POS", "Monitoring" ],
+  "createdBy" : "wlevs",
+  "createdAt" : 1460034541213,
+  "updatedBy" : "wlevs",
+  "updatedAt" : 1460035096275,
+  "realEventType" : {
+    "name" : "sx-3-24-SAMPLE_POS_Monitoring_Analysis-2",
+    "fields" : {
+      "StoreName" : "string",
+      "AWARD_STATUS" : "string",
+      "StoreEmail" : "string",
+      "ZipCode" : "string",
+      "CreditCardNumber" : "string",
+      "PurchaseAmount" : "int",
+      "MeatSales" : "int",
+      "FruitSales" : "int",
+      "ClothingSales" : "int",
+      "StoreID" : "string"
+    }
+  },
+  "oepAppName" : "sx-3-24-SAMPLE_POS_Monitoring_Analysis",
+  "invalid" : true,
+  "producedEventType" : null,
+  "targetNames" : [ ],
+  "producedEventTypeMapping" : { },
+  "correlations" : [ ],
+  "conditions" : {
+    "operator" : "AND",
+    "conditions" : [ ]
+  },
+  "group" : [ ],
+  "sources" : [ {
+    "alias" : "src_18",
+    "sourceName" : "18",
+    "window" : {
+      "value" : 1,
+      "unit" : "NOW",
+      "slideValue" : 10,
+      "slideUnit" : "SECONDS",
+      "partitionBy" : [ ],
+      "partitionByKeys" : [ ]
+    }
+  } ],
+  "targetProperties" : [ ],
+  "summaries" : [ ],
+  "explorationFields" : [ {
+    "alias" : "StoreName",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "StoreName"
+    }
+  }, {
+    "alias" : "AWARD_STATUS",
+    "fieldClass" : "CALCULATED",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "expression" : "=\" \""
+    }
+  }, {
+    "alias" : "StoreEmail",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "StoreEmail"
+    }
+  }, {
+    "alias" : "ZipCode",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "ZipCode"
+    }
+  }, {
+    "alias" : "CreditCardNumber",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "CreditCardNumber"
+    }
+  }, {
+    "alias" : "PurchaseAmount",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "PurchaseAmount"
+    }
+  }, {
+    "alias" : "MeatSales",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "MeatSales"
+    }
+  }, {
+    "alias" : "FruitSales",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "FruitSales"
+    }
+  }, {
+    "alias" : "ClothingSales",
+    "fieldClass" : "SOURCE",
+    "type" : "int",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "ClothingSales"
+    }
+  }, {
+    "alias" : "StoreID",
+    "fieldClass" : "SOURCE",
+    "type" : "string",
+    "removedUser" : false,
+    "removedSystems" : false,
+    "operand" : {
+      "sourceAlias" : "src_18",
+      "fieldName" : "StoreID"
+    }
+  }, {
+    "alias" : "calc_2",
+    "fieldClass" : "CALCULATED",
+    "type" : "string",
+    "removedUser" : true,
+    "removedSystems" : false,
+    "operand" : {
+      "expression" : "=\" \""
+    }
+  } ],
+  "tableProperties" : [ {
+    "alias" : "StoreName",
+    "order" : 0,
+    "visible" : true
+  }, {
+    "alias" : "AWARD_STATUS",
+    "order" : 1,
+    "visible" : true
+  }, {
+    "alias" : "StoreEmail",
+    "order" : 2,
+    "visible" : true
+  }, {
+    "alias" : "ZipCode",
+    "order" : 3,
+    "visible" : true
+  }, {
+    "alias" : "CreditCardNumber",
+    "order" : 4,
+    "visible" : true
+  }, {
+    "alias" : "PurchaseAmount",
+    "order" : 5,
+    "visible" : true
+  }, {
+    "alias" : "MeatSales",
+    "order" : 6,
+    "visible" : true
+  }, {
+    "alias" : "FruitSales",
+    "order" : 7,
+    "visible" : true
+  }, {
+    "alias" : "ClothingSales",
+    "order" : 8,
+    "visible" : true
+  }, {
+    "alias" : "StoreID",
+    "order" : 9,
+    "visible" : true
+  }, {
+    "alias" : "calc_2",
+    "order" : 10,
+    "visible" : true
+  } ],
+  "pubSubChannelName" : null,
+  "originalVersion" : 90,
+  "obrRules" : [ {
+    "name" : "STORE_PROMOTION_AWARD",
+    "description" : "This is a rule for any store that generates more than a threshold amount in one hour, that is nominated for a high sales award",
+    "conditions" : {
+      "operator" : "AND",
+      "conditions" : [ {
+        "operation" : "GTE",
+        "left" : {
+          "fieldAlias" : "PurchaseAmount"
+        },
+        "right" : {
+          "int" : 5000
+        }
+      } ]
+    },
+    "actions" : [ {
+      "fieldAlias" : "AWARD_STATUS",
+      "expression" : "AWARD"
+    } ],
+    "errors" : null
+  } ],
+  "status" : null,
+  "targets" : [ ]
+}]}
