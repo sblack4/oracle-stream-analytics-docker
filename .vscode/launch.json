@@ -16,6 +16,15 @@
                 "-A",
                 "-s"
             ]
+        }, {
+            "type": "bashdb",
+            "request": "launch", 
+            "pathBash": "C:\\Program Files\\Git\\bin\\git-bash.exe",
+            "name": "git-bash ${file}", 
+            "program": "${file}", 
+            "args": [
+                
+            ]
         }
     ]
 }
