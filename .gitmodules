@@ -1,6 +1,0 @@
-[submodule "osa-dockerfiles"]
-	path = osa-dockerfiles
-	url = https://github.com/gschmutz/dockerfiles.git
-[submodule "osa-docker"]
-	path = osa-docker
-	url = https://github.com/sblack4/dockerfiles.git

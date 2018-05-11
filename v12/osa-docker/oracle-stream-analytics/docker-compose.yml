@@ -1,0 +1,36 @@
+# docker-compose 
+# https://docs.docker.com/compose/
+# run with:
+#   `docker-compose build`
+#   `docker-compose up`
+# extra comments have been added
+# for those, like me, who are new to docker
+version: '3'    # docker-compose version
+services:       # service = container
+
+
+# our own Oracle Database xe 12c on ubuntu!!!
+# basically `docker run -it -p 1521:1521 sath89/oracle-12c /bin/bash /entrypoint.sh`
+# from https://github.com/MaksymBilenko/docker-oracle-12c 
+  db:
+    image: sath89/oracle-12c
+    environment:
+      - WEB_CONSOLE=false     # disables enterprise manager
+      - IMPORT_FROM_VOLUME=true
+    # volumes: 
+      # - "/data:/docker-entrypoint-initdb.d"
+    ports:                    # map ports to access on your laptop
+      - "1521:1521"           # Port for tnslistener (database connection)
+    entrypoint:
+      - bash
+      - /entrypoint.sh
+# OSA v12.2.1
+# Build following corresponding 
+# dockerfile first 
+  v12:
+    build: dockerfiles/12.2.1/
+    image: sblack4/osa-v12
+    depends_on: 
+      - db
+    ports: 
+      - "9002:9002"           # 

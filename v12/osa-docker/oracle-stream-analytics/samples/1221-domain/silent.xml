@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bea-installer xmlns="http://www.bea.com/plateng/wlevs/config/silent">
+  <input-fields>
+    <data-value name="CONFIGURATION_OPTION" value="osa_domain" />
+    <data-value name="USERNAME" value="%username%" />
+    <data-value name="PASSWORD" value="%password%" />
+    <data-value name="SERVER_NAME" value="%serverName%" />
+    <data-value name="DOMAIN_NAME" value="%domainName%" />
+    <data-value name="DOMAIN_LOCATION" value="/u01/oracle/user_projects/domains" />
+    <data-value name="NETIO_PORT" value="%netioPort%" />
+    <data-value name="KEYSTORE_PASSWORD" value="%keystorePassword%" /> 
+    <data-value name="PRIVATEKEY_PASSWORD" value="%privatekeyPassword%" /> 
+    <data-value name="DB_URL" value="jdbc:oracle:thin:@%dbServerName%:%dbServerPort%:%dbServerService%" />
+    <data-value name="DB_USERNAME" value="%dbUsername%" />
+    <data-value name="DB_PASSWORD" value="%dbPassword%" />
+  </input-fields>
+</bea-installer>

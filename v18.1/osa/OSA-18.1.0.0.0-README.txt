@@ -1,0 +1,49 @@
+Oracle® Stream Analytics Notes 18.1.0.0.0
+
+March 2, 2018
+
+
+Copyright© 2018, Oracle and/or its affiliates. All rights reserved.
+
+
+These notes accompany the Oracle Stream Analytics 18.1.0.0.0 release. 
+This release is an on-premise release of Oracle Stream Analytics.
+This document contains the following sections:
+
+===============================================================================
+
+1 Installation Instructions
+
+2 Release Notes
+
+3 General Documentation
+
+===============================================================================
+
+1 Installation Instructions
+
+Installation instructions for the Oracle Stream Analytics 18.1.0.0.0 release
+can be found at
+
+  https://docs.oracle.com/en/middleware/osa/18.1/install-stream-analytics/index.html
+
+===============================================================================
+
+2 Release Notes
+
+Review the information about this release, including corrections and known 
+issues, by reviewing the Oracle® Fusion Middleware Known Issues in Oracle
+Stream Analytics document at:
+
+  https://docs.oracle.com/en/middleware/osa/18.1/known-issues-stream-analytics/known-issues-oracle-stream-analytics.pdf
+
+===============================================================================
+
+3 General Documentation
+
+The documentation set for the Oracle Stream Analytics 18.1.0.0.0 release is
+available at 
+
+  https://docs.oracle.com/en/middleware/osa/18.1/index.html
+
+===============================================================================
