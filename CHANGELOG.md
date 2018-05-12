@@ -3,7 +3,7 @@ https://keepachangelog.com/en/1.0.0/
 
 ## 2018-05-10
 
-starting ahead on image v18.1
+adding to image v18.1 - manual build works
 
 ## 2018-05-07
 

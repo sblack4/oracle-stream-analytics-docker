@@ -1,10 +1,29 @@
 version: '3'
 services: 
+  # mysql: 
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: oracle
+  #   ports: 
+  #     - 3306:3306     # mysql db conn
+  #     - 33060:33060
+  # kafka:
+    # image: confluenct/kafka
+    # ports:
+    #   2181:2181     # zookeeper
+    #   9092:9092     # kafka
+    #   8081:8081     # schema-registry
+    #   8082:8082     # REST proxy
   osa: 
     build: ./osa
     ports: 
-      - 4040:4040
-      - 7077:7077
-      - 8080:8080
+      - 3306:3306     # mysql db conn
+      - 4040:4040     # 
+      - 7077:7077     # 
+      - 8080:8080     # 
+      - 9080:9080     # OSA: localhost:9080/osa
     environment:
       SPARK_ROLE: master
+      MYSQL_ROOT_PASSWORD: oracle
+    # depends_on: 
+      # - mysql
