@@ -1,9 +1,21 @@
 # changelog  
 https://keepachangelog.com/en/1.0.0/ 
 
+## 2018-05-14 
+
+Changes need to be made to integrate with oracle/docker-image, see 
+https://github.com/oracle/docker-images/blob/master/CONTRIBUTING.md#base-image-rules 
+
 ## 2018-05-10
 
 adding to image v18.1 - manual build works
+- docker-compose failed
+- brought back container and bashed in 
+- manually installed mysql on the OSA container
+- fixed config files that `sed` was supposed to handle 
+- started OSA
+- YAY! for aprx 10 seconds 
+- victory! time to :sleep:
 
 ## 2018-05-07
 
