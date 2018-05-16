@@ -24,6 +24,7 @@ services:
       - 9080:9080     # OSA: localhost:9080/osa
     environment:
       SPARK_ROLE: master
+      # HTTP_PROXY: http://www-proxy.us.oracle.com:80
       MYSQL_ROOT_PASSWORD: oracle
     # depends_on: 
       # - mysql

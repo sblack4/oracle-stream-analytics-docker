@@ -29,23 +29,15 @@ ENV OSA_HOME=/opt/OSA-18.1.0.0.0
 #     tar xvzf spark-2.2.1-bin-hadoop2.7.tgz 
 
 # install OSA 
-COPY OSA-18.1.0.0.0.zip /tmp/
+COPY OSA-18.1.0.0.0.zip /opt/
 COPY entrypoint.sh /home/
+COPY install-osa.sh /home/
 
+# delete line if not on proxy
 RUN [ -z $HTTP_PROXY ] || echo 'Acquire::http::Proxy "http://www-proxy.us.oracle.com:80";' >> /etc/apt/apt.conf
 
-RUN apt-get update && \
-    apt-get install -y unzip mysql-server && \
-    unzip /tmp/OSA-18.1.0.0.0.zip -d /opt && \
-    rm -rf /tmp/OSA-18.1.0.0.0.zip
-
-RUN sed -i '/#export JAVA_HOME=/c\export JAVA_HOME=${JAVA_HOME}' $OSA_HOME/osa-base/etc/osa-env.sh && \
-    sed -i '/#export SPARK_HOME=/c\export SPARK_HOME=${SPARK_HOME}' $OSA_HOME/osa-base/etc/osa-env.sh && \
-    sed -i '34d;48d' $OSA_HOME/osa-base/etc/jetty-osa-datasource.xml && \
-    sed -i 's#myhost.example.com:3307/OSADB#mysql:3306/OSADB#g' $OSA_HOME/osa-base/etc/jetty-osa-datasource.xml && \
-    sed -i 's#{OSA_USER}#root#g' $OSA_HOME/osa-base/etc/jetty-osa-datasource.xml && \
-    sed -i 's#{OSA_USER_PWD}#oracle#g' $OSA_HOME/osa-base/etc/jetty-osa-datasource.xml
-
+    # RUN chmod +x /home/install-osa.sh && \
+        # bash /home/install-osa.sh
 
 
 ENTRYPOINT [ "bash", "/home/entrypoint.sh" ]
