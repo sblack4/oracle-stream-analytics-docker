@@ -20,3 +20,12 @@ OSA is available in many ways:
 
 Fortunately the kind folk of the internet have provided a docker image to be our little playground :smiley:
 
+#### OSA v12
+The v12 image is pretty much stolen from the interwebs and adapted. 
+I got it to work by bashing into the container but I wouldn't recommend using it unless you are ready to troubleshoot...
+
+#### OSA v18.1 
+I did it! it should work just by running `docker-compose up` but if it doesn't let me know!
+Right now everything is running in one container but I'll probably set it up for multiple containers 
+before giving the oracle/docker-images repo a PR :smiley: 
+
