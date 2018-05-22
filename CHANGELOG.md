@@ -1,6 +1,10 @@
 # changelog  
 https://keepachangelog.com/en/1.0.0/ 
 
+## 2018-05-22
+IT WORKS! looks like the error was a number of things, 
+notably you must wait until the last minute to update the new osaadmin password in the database... 
+
 ## 2018-05-15
 fixes - the build gets *almost* there!
 

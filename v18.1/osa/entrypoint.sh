@@ -6,15 +6,18 @@ cat /etc/passwd
 
 
 chmod +x /home/install-osa.sh
+echo "--- RUNNING OSA INSTALL SCRIPT ---"
 source /home/install-osa.sh
 
-echo --- START OSA --- 
-# start osa
+echo --- UPDATEING PASSWORD IN DB --- 
+NEW_PWD=`cat /home/osaadmin_password.txt`
+mysql -uroot -poracle -e "UPDATE OSADB.osa_users SET pwd='$NEW_PWD' WHERE username='osaadmin';"
+mysql -uroot -poracle -e "FLUSH PRIVILEGES;"
+
+echo "--- START OSA ---"
 bash $OSA_HOME/osa-base/bin/start-osa.sh
-echo --- OSA STARTED ---
 
-echo --- TAILING LOGS --- 
-ls -lha $OSA_HOME/osa-base/logs
-tail -f $(ls $OSA_HOME/osa-base/logs | tail -n 1)
+echo "OSA should be running at localhost:9080/osa"
 
-while true; do sleep 2; tail -f $(ls $OSA_HOME/osa-base/logs | tail -n 1) ; done
+# don't go to sleep plz
+tail -f /dev/null
