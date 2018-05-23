@@ -2,13 +2,6 @@
 # see https://docs.oracle.com/en/middleware/osa/18.1/install-stream-analytics/how-install-oracle-stream-analytics.html 
 # @sblack4 2018
 #
-# ## To Install: 
-#   - [x] take jre 
-#   - [x] install spark v2.2.1
-#   - [ ] install OSA v18.1
-#       - [X] set JAVA_HOME & SPARK_HOME in osa-env.sh
-#       - [ ] iitialize metadata (mysql) store
-#   - [ ] start osa
 
 # 
 # FROM oracle/serverjre:8 
@@ -21,7 +14,7 @@ LABEL maintainer "steven.black@oracle.com"
 ENV SPARK_HOME=/usr/local/spark
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV OSA_HOME=/opt/OSA-18.1.0.0.0
-ENV HTTP_PROXY="http://www-proxy.us.oracle.com:80"
+# ENV HTTP_PROXY="http://www-proxy.us.oracle.com:80"
 
 # install Spark 
 # RUN cd /opt \
@@ -32,6 +25,7 @@ ENV HTTP_PROXY="http://www-proxy.us.oracle.com:80"
 COPY OSA-18.1.0.0.0.zip /opt/
 COPY entrypoint.sh /home/
 COPY install-osa.sh /home/
+COPY install-kafka.sh /home/
 
 # delete line if not on proxy
 RUN [ -z $HTTP_PROXY ] || echo 'Acquire::http::Proxy "http://www-proxy.us.oracle.com:80";' >> /etc/apt/apt.conf

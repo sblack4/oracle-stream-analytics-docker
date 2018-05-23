@@ -9,6 +9,10 @@ chmod +x /home/install-osa.sh
 echo "--- RUNNING OSA INSTALL SCRIPT ---"
 source /home/install-osa.sh
 
+chmod +x /home/install-kafka.sh
+echo "--- RUNNING KAFKA INSTALL SCRIPT ---"
+source /home/install-kafka.sh
+
 echo --- UPDATEING PASSWORD IN DB --- 
 NEW_PWD=`cat /home/osaadmin_password.txt`
 mysql -uroot -poracle -e "UPDATE OSADB.osa_users SET pwd='$NEW_PWD' WHERE username='osaadmin';"

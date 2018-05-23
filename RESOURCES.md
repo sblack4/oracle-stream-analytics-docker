@@ -14,3 +14,9 @@ https://guidoschmutz.wordpress.com/2015/03/29/installing-oracle-stream-explorer-
 
 OSA 12c in Docker   
 https://guidoschmutz.wordpress.com/2016/06/12/providing-oracle-stream-analytics-12c-environment-using-docker/ 
+
+Dockerfile for Oracle Stream Analytics 12c      
+https://github.com/gschmutz/dockerfiles
+
+Dockerfile for Oracle Stream Explorer 12c.      
+https://github.com/gschmutz/docker-oracle-sx 

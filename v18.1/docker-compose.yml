@@ -17,14 +17,15 @@ services:
   osa: 
     build: ./osa
     ports: 
+      - 2181:2181     # zookeeper 
       - 3306:3306     # mysql db conn
-      - 4040:4040     # spark
-      - 7077:7077     # spark
-      - 8080:8080     # spark
+      # - 4040:4040     # spark
+      # - 7077:7077     # spark
+      # - 8080:8080     # spark
       - 9080:9080     # OSA: localhost:9080/osa
     environment:
       SPARK_ROLE: master
-      HTTP_PROXY: http://www-proxy.us.oracle.com:80
+      # HTTP_PROXY: http://www-proxy.us.oracle.com:80
       MYSQL_ROOT_PASSWORD: oracle
     # depends_on: 
       # - mysql
